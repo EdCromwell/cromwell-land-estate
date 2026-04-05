@@ -8,152 +8,394 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0d1117;
+            background: #0a0f1a;
             color: #e6edf3;
             line-height: 1.7;
         }
-        .hero {
-            min-height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1a2332 100%);
-            border-bottom: 1px solid #21262d;
+        a { color: #58a6ff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* ── NAV ─────────────────────────────────── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(10, 15, 26, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding: 0 2rem;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 64px;
         }
+        nav .brand {
+            font-size: 1.3rem; font-weight: 700; color: #f0f6fc;
+            letter-spacing: 0.02em;
+        }
+        nav .brand span { color: #58a6ff; }
+        nav .nav-links { display: flex; gap: 2rem; }
+        nav .nav-links a {
+            color: #8b949e; font-size: 0.9rem; font-weight: 500;
+            text-decoration: none; transition: color 0.2s;
+        }
+        nav .nav-links a:hover { color: #f0f6fc; }
+
+        /* ── HERO ────────────────────────────────── */
+        .hero {
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            text-align: center; padding: 6rem 2rem 4rem;
+            position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(88,166,255,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(56,139,253,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(31,111,200,0.04) 0%, transparent 60%);
+        }
+        .hero-content { position: relative; z-index: 1; max-width: 800px; }
         .hero h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #f0f6fc;
-            letter-spacing: -0.02em;
+            font-size: 3.5rem; font-weight: 800;
+            background: linear-gradient(135deg, #f0f6fc 0%, #58a6ff 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; margin-bottom: 1rem;
+            letter-spacing: -0.03em;
         }
         .hero .tagline {
-            font-size: 1.2rem;
-            color: #8b949e;
-            margin-bottom: 2rem;
+            font-size: 1.3rem; color: #8b949e;
+            margin-bottom: 0.5rem; font-weight: 300;
         }
-        .hero .location {
-            font-size: 0.95rem;
-            color: #58a6ff;
+        .hero .locations {
+            font-size: 0.95rem; color: #58a6ff;
+            margin-bottom: 2.5rem;
         }
+        .hero .cta {
+            display: inline-block; padding: 0.8rem 2rem;
+            background: #58a6ff; color: #0a0f1a;
+            border-radius: 8px; font-weight: 600; font-size: 1rem;
+            text-decoration: none; transition: all 0.2s;
+        }
+        .hero .cta:hover {
+            background: #79b8ff; transform: translateY(-2px);
+            text-decoration: none; box-shadow: 0 8px 24px rgba(88,166,255,0.25);
+        }
+
+        /* ── SECTIONS ────────────────────────────── */
         .section {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
+            max-width: 1100px; margin: 0 auto;
+            padding: 5rem 2rem;
         }
+        .section-dark { background: #0d1218; }
         .section h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: #f0f6fc;
-            border-bottom: 1px solid #21262d;
-            padding-bottom: 0.5rem;
+            font-size: 2rem; margin-bottom: 1rem;
+            color: #f0f6fc; font-weight: 700;
         }
-        .section p {
-            color: #8b949e;
-            margin-bottom: 1rem;
-            font-size: 1.05rem;
+        .section .section-sub {
+            color: #8b949e; font-size: 1.1rem;
+            margin-bottom: 3rem; max-width: 600px;
         }
-        .services {
+
+        /* ── IMAGE BANNER ────────────────────────── */
+        .image-banner {
+            width: 100%; height: 400px;
+            object-fit: cover; display: block;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        /* ── ABOUT GRID ──────────────────────────── */
+        .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem; align-items: center;
+        }
+        .about-text p {
+            color: #8b949e; font-size: 1.05rem;
+            margin-bottom: 1.2rem;
+        }
+        .about-text .highlight {
+            color: #f0f6fc; font-weight: 500;
+        }
+        .about-image {
+            width: 100%; border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .stats-row {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem; margin-top: 2rem;
+        }
+        .stat {
+            background: rgba(88,166,255,0.04);
+            border: 1px solid rgba(88,166,255,0.1);
+            border-radius: 10px; padding: 1.2rem; text-align: center;
+        }
+        .stat .number {
+            font-size: 2rem; font-weight: 800; color: #58a6ff;
+            display: block;
+        }
+        .stat .label {
+            font-size: 0.85rem; color: #8b949e;
+            text-transform: uppercase; letter-spacing: 0.05em;
+        }
+
+        /* ── SERVICES ────────────────────────────── */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
-            margin-top: 1.5rem;
         }
         .service-card {
-            background: #161b22;
-            border: 1px solid #21262d;
-            border-radius: 8px;
-            padding: 1.5rem;
+            background: linear-gradient(145deg, #111827 0%, #0d1117 100%);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px; padding: 2rem;
+            transition: all 0.3s;
+        }
+        .service-card:hover {
+            border-color: rgba(88,166,255,0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+        }
+        .service-card .icon {
+            font-size: 2.5rem; margin-bottom: 1rem;
+            display: block;
         }
         .service-card h3 {
-            font-size: 1.1rem;
-            color: #f0f6fc;
+            font-size: 1.2rem; color: #f0f6fc;
             margin-bottom: 0.5rem;
         }
         .service-card p {
-            font-size: 0.9rem;
-            color: #8b949e;
+            font-size: 0.95rem; color: #8b949e;
         }
-        .contact {
-            background: #161b22;
-            border: 1px solid #21262d;
-            border-radius: 8px;
-            padding: 2rem;
-            margin-top: 1.5rem;
+
+        /* ── VALUES ──────────────────────────────── */
+        .values-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
         }
-        .contact p { margin-bottom: 0.5rem; }
-        .contact a { color: #58a6ff; text-decoration: none; }
-        .contact a:hover { text-decoration: underline; }
+        .value-item {
+            display: flex; gap: 1rem; align-items: flex-start;
+        }
+        .value-icon {
+            font-size: 1.5rem;
+            background: rgba(88,166,255,0.08);
+            border-radius: 10px; padding: 0.8rem;
+            flex-shrink: 0;
+        }
+        .value-text h4 { color: #f0f6fc; margin-bottom: 0.3rem; }
+        .value-text p { color: #8b949e; font-size: 0.9rem; }
+
+        /* ── CONTACT ─────────────────────────────── */
+        .contact-card {
+            background: linear-gradient(145deg, #111827 0%, #0d1117 100%);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px; padding: 2.5rem;
+            max-width: 600px;
+        }
+        .contact-card p {
+            color: #8b949e; margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+        /* ── LEGAL ───────────────────────────────── */
+        .legal { background: #080c14; border-top: 1px solid rgba(255,255,255,0.04); }
+        .legal h2 { font-size: 1.4rem; margin-bottom: 1.5rem; }
+        .legal p {
+            color: #6e7681; font-size: 0.95rem;
+            margin-bottom: 1rem; max-width: 700px;
+        }
+        .legal-divider { height: 1px; background: rgba(255,255,255,0.04); margin: 3rem 0; }
+
+        /* ── FOOTER ──────────────────────────────── */
         footer {
-            text-align: center;
-            padding: 2rem;
-            color: #484f58;
-            font-size: 0.85rem;
-            border-top: 1px solid #21262d;
+            text-align: center; padding: 2.5rem;
+            color: #484f58; font-size: 0.85rem;
+            background: #060a12;
+            border-top: 1px solid rgba(255,255,255,0.04);
         }
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 1.8rem; }
-            .section { padding: 2rem 1.5rem; }
+
+        /* ── RESPONSIVE ──────────────────────────── */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .stats-row { grid-template-columns: 1fr; }
+            .values-grid { grid-template-columns: 1fr; }
+            .image-banner { height: 250px; }
+            nav .nav-links { gap: 1rem; }
+            nav .nav-links a { font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <h1>The Cromwell Land & Estate</h1>
-        <p class="tagline">Property Management & Real Estate Services</p>
-        <p class="location">Iowa, United States</p>
-    </div>
 
-    <div class="section">
-        <h2>About</h2>
-        <p>The Cromwell Land & Estate LLC is a property management and real estate company specializing in residential rental properties. We provide reliable, well-maintained housing and leverage modern technology to deliver efficient property management services.</p>
+    <!-- Navigation -->
+    <nav>
+        <div class="brand">Cromwell <span>Land & Estate</span></div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+            <a href="#privacy">Privacy</a>
+        </div>
+    </nav>
 
-        <h2 style="margin-top: 3rem;">Services</h2>
-        <div class="services">
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>The Cromwell Land & Estate</h1>
+            <p class="tagline">Modern Property Management, Built on Trust</p>
+            <p class="locations">Operating in Virginia — Registered in Texas</p>
+            <a href="#contact" class="cta">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Property Image Banner -->
+    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600&h=400&fit=crop&crop=center" alt="Modern residential property" class="image-banner">
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <h2>About Us</h2>
+        <p class="section-sub">Building a better experience for property owners and tenants through technology and personal attention.</p>
+
+        <div class="about-grid">
+            <div class="about-text">
+                <p><span class="highlight">The Cromwell Land & Estate LLC</span> is a property management and real estate company founded by Edward Cromwell, a U.S. veteran committed to providing quality housing and reliable property management services.</p>
+                <p>We operate primarily in <span class="highlight">Virginia</span>, serving residential tenants with well-maintained properties and responsive management. Our business is <span class="highlight">registered in Texas</span> and built on a foundation of integrity, efficiency, and modern technology.</p>
+                <p>What sets us apart is our technology-forward approach. We leverage AI-assisted systems for faster communication, proactive maintenance tracking, and streamlined operations — ensuring both property owners and tenants get the attention they deserve.</p>
+
+                <div class="stats-row">
+                    <div class="stat">
+                        <span class="number">24/7</span>
+                        <span class="label">Availability</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">VA</span>
+                        <span class="label">Operations</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">TX</span>
+                        <span class="label">Registered</span>
+                    </div>
+                </div>
+            </div>
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=500&fit=crop" alt="Beautiful residential home" class="about-image">
+        </div>
+    </section>
+
+    <!-- Services Image -->
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&h=350&fit=crop&crop=center" alt="Luxury home exterior" class="image-banner">
+
+    <!-- Services -->
+    <section class="section section-dark" id="services">
+        <h2>Our Services</h2>
+        <p class="section-sub">End-to-end property management designed around reliability and results.</p>
+
+        <div class="services-grid">
             <div class="service-card">
+                <span class="icon">🏠</span>
                 <h3>Property Management</h3>
-                <p>Full-service management of residential rental properties including tenant relations, maintenance, and rent collection.</p>
+                <p>Full-service management of residential rental properties including tenant screening, lease management, rent collection, and ongoing property oversight.</p>
             </div>
             <div class="service-card">
-                <h3>Rental Properties</h3>
-                <p>Quality residential rentals maintained to high standards for tenants.</p>
+                <span class="icon">🔧</span>
+                <h3>Maintenance & Repairs</h3>
+                <p>Proactive maintenance scheduling, emergency repair coordination, and vendor management to keep properties in top condition year-round.</p>
             </div>
             <div class="service-card">
-                <h3>Technology-Driven</h3>
-                <p>Modern tools and AI-assisted systems for efficient communication, notifications, and property management.</p>
+                <span class="icon">📊</span>
+                <h3>Financial Reporting</h3>
+                <p>Transparent financial tracking with monthly income and expense reports, rent roll management, and tax-ready documentation for property owners.</p>
+            </div>
+            <div class="service-card">
+                <span class="icon">🤖</span>
+                <h3>Technology-Driven Operations</h3>
+                <p>AI-assisted communication and notification systems for fast response times, automated reminders, and efficient tenant-owner coordination.</p>
+            </div>
+            <div class="service-card">
+                <span class="icon">🔑</span>
+                <h3>Tenant Relations</h3>
+                <p>Responsive tenant support, streamlined move-in/move-out processes, and clear communication channels that keep everyone informed.</p>
+            </div>
+            <div class="service-card">
+                <span class="icon">📋</span>
+                <h3>Lease Administration</h3>
+                <p>Professional lease drafting, renewal management, compliance tracking, and documentation to protect both owners and tenants.</p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="section">
-        <h2>Contact</h2>
-        <div class="contact">
-            <p><strong>The Cromwell Land & Estate LLC</strong></p>
-            <p>Email: <a href="mailto:edwardcromwell1998@gmail.com">edwardcromwell1998@gmail.com</a></p>
+    <!-- Values -->
+    <section class="section">
+        <h2>Our Values</h2>
+        <p class="section-sub">What drives every decision we make.</p>
+
+        <div class="values-grid">
+            <div class="value-item">
+                <div class="value-icon">🎖️</div>
+                <div class="value-text">
+                    <h4>Veteran-Founded Integrity</h4>
+                    <p>Military discipline and honor translate directly into how we manage properties and treat people. We do what we say, every time.</p>
+                </div>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">⚡</div>
+                <div class="value-text">
+                    <h4>Speed & Responsiveness</h4>
+                    <p>Maintenance requests, tenant inquiries, and owner updates are handled promptly — not days later, not next week.</p>
+                </div>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">🔒</div>
+                <div class="value-text">
+                    <h4>Transparency</h4>
+                    <p>Clear financials, honest assessments, and no hidden fees. You always know exactly where your property and money stand.</p>
+                </div>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">🚀</div>
+                <div class="value-text">
+                    <h4>Innovation</h4>
+                    <p>We embrace modern tools and AI to work smarter — automating routine tasks so we can focus on what matters: people and properties.</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <div class="section" id="privacy">
+    <!-- Contact Image -->
+    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&h=300&fit=crop&crop=center" alt="Modern home interior" class="image-banner">
+
+    <!-- Contact -->
+    <section class="section section-dark" id="contact">
+        <h2>Get in Touch</h2>
+        <p class="section-sub">Interested in our services? Reach out and we'll get back to you promptly.</p>
+
+        <div class="contact-card">
+            <p><strong style="color:#f0f6fc; font-size:1.1rem;">The Cromwell Land & Estate LLC</strong></p>
+            <p>📍 Operating in Virginia | Registered in Texas</p>
+            <p>📧 <a href="mailto:edwardcromwell1998@gmail.com">edwardcromwell1998@gmail.com</a></p>
+            <p>💬 SMS notifications available for tenants and clients</p>
+        </div>
+    </section>
+
+    <!-- Privacy & Terms -->
+    <section class="section legal" id="privacy">
         <h2>Privacy Policy</h2>
-        <p>The Cromwell Land & Estate LLC ("we", "our") uses SMS messaging to communicate important notifications to tenants and business contacts. We collect phone numbers solely for the purpose of sending property management updates, reminders, and alerts.</p>
-        <p>We do not sell, rent, or share personal information with third parties. SMS delivery is handled through Twilio in accordance with their privacy policy. Recipients may opt out at any time by replying STOP to any message.</p>
-        <p>For questions about this policy, contact <a href="mailto:edwardcromwell1998@gmail.com" style="color:#58a6ff;">edwardcromwell1998@gmail.com</a>.</p>
-    </div>
+        <p>The Cromwell Land & Estate LLC ("we", "our") uses SMS messaging to communicate important notifications to tenants, clients, and business contacts. We collect phone numbers solely for the purpose of sending property management updates, reminders, payment confirmations, and important alerts.</p>
+        <p>We do not sell, rent, or share personal information with third parties for marketing purposes. SMS delivery is handled through Twilio, a trusted communications platform, in accordance with their privacy policy. Message data is used solely for property management operations.</p>
+        <p>Recipients may opt out of SMS communications at any time by replying <strong style="color:#f0f6fc;">STOP</strong> to any message. For questions about this policy, contact <a href="mailto:edwardcromwell1998@gmail.com">edwardcromwell1998@gmail.com</a>.</p>
 
-    <div class="section" id="terms">
-        <h2>Terms & Conditions</h2>
-        <p><strong>SMS Messaging Program:</strong> The Cromwell Land & Estate LLC sends SMS notifications related to property management, reminders, and important alerts. Message frequency varies. Standard message and data rates may apply.</p>
-        <p><strong>Opt-In:</strong> Recipients are added to our messaging program with explicit consent. You may be added by providing your phone number to our property management team.</p>
-        <p><strong>Opt-Out:</strong> Reply STOP to any message to opt out. Reply HELP for assistance. After opting out, you will receive no further messages unless you opt back in.</p>
-        <p><strong>Supported Carriers:</strong> SMS delivery is supported on all major US carriers including AT&T, T-Mobile, Verizon, and others.</p>
-        <p>For questions, contact <a href="mailto:edwardcromwell1998@gmail.com" style="color:#58a6ff;">edwardcromwell1998@gmail.com</a>.</p>
-    </div>
+        <div class="legal-divider"></div>
+
+        <h2 id="terms">Terms & Conditions</h2>
+        <p><strong style="color:#8b949e;">SMS Messaging Program:</strong> The Cromwell Land & Estate LLC sends SMS notifications related to property management, rent reminders, maintenance updates, and important alerts. Message frequency varies based on property activity and tenant needs. Standard message and data rates may apply.</p>
+        <p><strong style="color:#8b949e;">Opt-In:</strong> Recipients are added to our messaging program with explicit verbal or written consent. Tenants may be enrolled during lease signing. Other contacts are added only with direct authorization.</p>
+        <p><strong style="color:#8b949e;">Opt-Out:</strong> Reply <strong style="color:#f0f6fc;">STOP</strong> to any message to unsubscribe. Reply <strong style="color:#f0f6fc;">HELP</strong> for assistance. After opting out, you will receive no further messages unless you opt back in.</p>
+        <p><strong style="color:#8b949e;">Supported Carriers:</strong> SMS delivery is supported on all major US carriers including AT&T, T-Mobile, Verizon, US Cellular, and others.</p>
+        <p>For questions, contact <a href="mailto:edwardcromwell1998@gmail.com">edwardcromwell1998@gmail.com</a>.</p>
+    </section>
 
     <footer>
-        &copy; 2026 The Cromwell Land & Estate LLC. All rights reserved.
+        &copy; 2026 The Cromwell Land & Estate LLC. All rights reserved. | Veteran-Owned Business
     </footer>
+
 </body>
 </html>
