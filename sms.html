@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Notifications — The Cromwell Land & Estate LLC</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0f1a; color: #e6edf3; line-height: 1.7; }
+        a { color: #58a6ff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10, 15, 26, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        nav .brand { font-size: 1.3rem; font-weight: 700; color: #f0f6fc; letter-spacing: 0.02em; }
+        nav .brand span { color: #58a6ff; }
+        nav .nav-links { display: flex; gap: 2rem; }
+        nav .nav-links a { color: #8b949e; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        nav .nav-links a:hover { color: #f0f6fc; }
+        .container { max-width: 680px; margin: 0 auto; padding: 120px 2rem 4rem; }
+        h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem; background: linear-gradient(135deg, #f0f6fc 0%, #58a6ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .subtitle { color: #8b949e; font-size: 1.1rem; margin-bottom: 2.5rem; }
+        .card { background: linear-gradient(145deg, #111827 0%, #0d1117 100%); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 2rem; margin-bottom: 1.5rem; }
+        .card h2 { font-size: 1.2rem; color: #f0f6fc; margin-bottom: 0.8rem; }
+        .card p { color: #8b949e; font-size: 0.95rem; margin-bottom: 0.8rem; }
+        .card ul { color: #8b949e; font-size: 0.95rem; padding-left: 1.5rem; margin-bottom: 0.8rem; }
+        .card li { margin-bottom: 0.4rem; }
+        .form-card { border-color: rgba(88,166,255,0.15); }
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; font-size: 0.85rem; color: #8b949e; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
+        .form-group input[type="tel"], .form-group input[type="text"] { width: 100%; background: #0a0f1a; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 0.8rem 1rem; color: #e6edf3; font-size: 1rem; outline: 0; }
+        .form-group input:focus { border-color: #58a6ff; }
+        .consent-box { background: rgba(88,166,255,0.04); border: 1px solid rgba(88,166,255,0.1); border-radius: 8px; padding: 1.2rem; margin: 1.5rem 0; }
+        .consent-box label { display: flex; align-items: flex-start; gap: 0.8rem; cursor: pointer; font-size: 0.9rem; color: #c9d1d9; line-height: 1.5; }
+        .consent-box input[type="checkbox"] { margin-top: 4px; flex-shrink: 0; width: 18px; height: 18px; accent-color: #58a6ff; }
+        .disclosures { background: rgba(255,255,255,0.02); border-radius: 8px; padding: 1rem; margin: 1rem 0; font-size: 0.85rem; color: #6e7681; border: 1px solid rgba(255,255,255,0.04); }
+        .disclosures p { margin-bottom: 0.4rem; color: #6e7681; font-size: 0.85rem; }
+        .btn { display: inline-block; padding: 0.8rem 2rem; background: #58a6ff; color: #0a0f1a; border: 0; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer; width: 100%; text-align: center; }
+        .btn:hover { background: #79b8ff; }
+        .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+        .keywords { margin-top: 2rem; }
+        .keyword-row { display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 0.95rem; }
+        .keyword-row:last-child { border: 0; }
+        .keyword-row .kw { color: #58a6ff; font-weight: 600; font-family: monospace; font-size: 1rem; }
+        .keyword-row .desc { color: #8b949e; }
+        .legal-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.04); }
+        .legal-section h2 { font-size: 1.4rem; margin-bottom: 1rem; color: #f0f6fc; }
+        .legal-section p { color: #6e7681; font-size: 0.95rem; margin-bottom: 1rem; max-width: 100%; }
+        footer { text-align: center; padding: 2.5rem; color: #484f58; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.04); margin-top: 3rem; }
+        @media (max-width: 768px) { h1 { font-size: 1.8rem; } .container { padding: 100px 1.2rem 3rem; } }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" style="text-decoration:none"><div class="brand">Cromwell <span>Land & Estate</span></div></a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="#privacy-policy">Privacy</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <h1>SMS Notifications</h1>
+    <p class="subtitle">Stay informed with property management updates, rent reminders, maintenance alerts, and important notifications via text message.</p>
+
+    <!-- What You'll Receive -->
+    <div class="card">
+        <h2>What messages will I receive?</h2>
+        <p>The Cromwell Land & Estate LLC sends SMS notifications related to:</p>
+        <ul>
+            <li>Property management updates and announcements</li>
+            <li>Rent payment reminders and confirmations</li>
+            <li>Maintenance request updates and scheduling</li>
+            <li>Lease renewal reminders</li>
+            <li>Emergency or urgent property alerts</li>
+            <li>Financial summaries and alerts (for authorized account holders)</li>
+        </ul>
+        <p><strong style="color:#c9d1d9">Message frequency varies</strong> based on property activity, typically 1–10 messages per month. Standard message and data rates may apply.</p>
+    </div>
+
+    <!-- Opt-In Form -->
+    <div class="card form-card">
+        <h2>Enroll in SMS Notifications</h2>
+        <p>Complete the form below to opt in to SMS notifications from The Cromwell Land & Estate LLC.</p>
+
+        <form id="sms-form" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="name" placeholder="Edward Cromwell" required>
+            </div>
+            <div class="form-group">
+                <label>Mobile Phone Number</label>
+                <input type="tel" id="phone" placeholder="+1 (555) 123-4567" required>
+            </div>
+            <div class="form-group">
+                <label>Relationship</label>
+                <input type="text" id="relationship" placeholder="Tenant, Property Owner, Account Holder, etc.">
+            </div>
+
+            <div class="consent-box">
+                <label>
+                    <input type="checkbox" id="consent" required>
+                    <span>I consent to receive SMS text messages from The Cromwell Land & Estate LLC at the phone number provided. I understand that message frequency varies, standard message and data rates may apply, and I can opt out at any time by replying <strong>STOP</strong>. I have read and agree to the <a href="#privacy-policy">Privacy Policy</a> and <a href="#terms">Terms & Conditions</a> below.</span>
+                </label>
+            </div>
+
+            <div class="disclosures">
+                <p><strong>Required Disclosures:</strong></p>
+                <p>By checking the box above and submitting this form, you agree to receive automated SMS messages from The Cromwell Land & Estate LLC. This is not a condition of any purchase or service agreement.</p>
+                <p>Message frequency varies (typically 1–10 msgs/month). Message and data rates may apply. Reply STOP to cancel. Reply HELP for help. Supported carriers include AT&T, T-Mobile, Verizon, US Cellular, and all major US carriers.</p>
+                <p>Your phone number will not be sold, rented, or shared with third parties for marketing purposes.</p>
+            </div>
+
+            <button type="submit" class="btn">I Agree — Enroll Me</button>
+        </form>
+    </div>
+
+    <!-- SMS Keywords -->
+    <div class="card">
+        <h2>SMS Keywords</h2>
+        <p>You can manage your subscription at any time by texting the following keywords to our number:</p>
+        <div class="keywords">
+            <div class="keyword-row"><span class="kw">START</span><span class="desc">Subscribe to SMS notifications</span></div>
+            <div class="keyword-row"><span class="kw">STOP</span><span class="desc">Unsubscribe from all messages</span></div>
+            <div class="keyword-row"><span class="kw">HELP</span><span class="desc">Get assistance and contact information</span></div>
+        </div>
+    </div>
+
+    <!-- Alternative Opt-In Methods -->
+    <div class="card">
+        <h2>Other Ways to Opt In</h2>
+        <p>In addition to this web form, consent to receive SMS may be provided through:</p>
+        <ul>
+            <li><strong>Lease signing:</strong> Tenants may opt in to property notifications as part of the lease agreement, which includes SMS consent language and required disclosures.</li>
+            <li><strong>Verbal consent:</strong> Property owners and authorized contacts may provide verbal consent during in-person or phone consultations. Verbal consent is documented with date and name.</li>
+            <li><strong>Keyword opt-in:</strong> Text <strong style="color:#58a6ff">START</strong> to our phone number to subscribe.</li>
+        </ul>
+        <p>Regardless of opt-in method, all recipients receive the same disclosures: message frequency varies, message and data rates may apply, reply STOP to unsubscribe, reply HELP for help.</p>
+    </div>
+
+    <!-- Privacy Policy -->
+    <div class="legal-section" id="privacy-policy">
+        <h2>Privacy Policy</h2>
+        <p><strong>Effective Date:</strong> April 16, 2026</p>
+        <p><strong>Business Name:</strong> The Cromwell Land & Estate LLC</p>
+        <p><strong>Contact:</strong> <a href="mailto:edwardcromwell1998@gmail.com">edwardcromwell1998@gmail.com</a></p>
+
+        <p>The Cromwell Land & Estate LLC ("we," "us," "our") respects your privacy and is committed to protecting the personal information you provide. This Privacy Policy describes how we collect, use, and protect your information in connection with our SMS messaging program and property management services.</p>
+
+        <p><strong style="color:#c9d1d9">Information We Collect:</strong> When you opt in to our SMS program, we collect your name, phone number, and your relationship to our business (tenant, property owner, account holder). We may also collect information related to your property management account as needed to send relevant notifications.</p>
+
+        <p><strong style="color:#c9d1d9">How We Use Your Information:</strong> Your phone number and personal information are used solely to send SMS notifications related to property management operations, including rent reminders, maintenance updates, financial alerts, and important announcements. We do not use your information for any purpose unrelated to the services described.</p>
+
+        <p><strong style="color:#c9d1d9">Third-Party Sharing:</strong> We do not sell, rent, trade, or share your phone number or personal information with third parties for marketing purposes. SMS delivery is facilitated through Twilio, Inc., a communications platform provider that processes messages on our behalf. Twilio's use of your data is governed by their own privacy policy.</p>
+
+        <p><strong style="color:#c9d1d9">Data Retention:</strong> We retain your phone number and consent records for as long as you remain opted in to our messaging program and for a reasonable period afterward for compliance purposes. You may request deletion of your data by contacting us at the email above.</p>
+
+        <p><strong style="color:#c9d1d9">Your Rights:</strong> You may opt out of SMS messages at any time by replying STOP. You may request access to or deletion of your personal data by contacting <a href="mailto:edwardcromwell1998@gmail.com">edwardcromwell1998@gmail.com</a>.</p>
+
+        <p><strong style="color:#c9d1d9">Message Frequency:</strong> Message frequency varies based on property activity and account configuration, typically 1–10 messages per month.</p>
+
+        <p><strong style="color:#c9d1d9">Message and Data Rates:</strong> Standard message and data rates may apply depending on your wireless carrier and plan.</p>
+    </div>
+
+    <!-- Terms & Conditions -->
+    <div class="legal-section" id="terms">
+        <h2>SMS Terms & Conditions</h2>
+        <p><strong>Effective Date:</strong> April 16, 2026</p>
+
+        <p>By opting in to The Cromwell Land & Estate LLC SMS messaging program, you agree to the following terms:</p>
+
+        <p><strong style="color:#c9d1d9">Program Description:</strong> The Cromwell Land & Estate LLC provides SMS notifications for property management communications, including rent reminders, maintenance updates, financial alerts, lease notifications, and emergency announcements.</p>
+
+        <p><strong style="color:#c9d1d9">Consent:</strong> By submitting the opt-in form on this page, signing a lease with SMS consent language, providing verbal consent, or texting START to our number, you expressly consent to receive automated SMS messages from The Cromwell Land & Estate LLC at the phone number provided. Consent is not a condition of any purchase or service agreement.</p>
+
+        <p><strong style="color:#c9d1d9">Opt-Out:</strong> You may opt out at any time by replying <strong>STOP</strong> to any message. You will receive a one-time confirmation message and no further messages will be sent unless you re-subscribe.</p>
+
+        <p><strong style="color:#c9d1d9">Help:</strong> Reply <strong>HELP</strong> for assistance at any time. You may also contact us at <a href="mailto:edwardcromwell1998@gmail.com">edwardcromwell1998@gmail.com</a>.</p>
+
+        <p><strong style="color:#c9d1d9">Message Frequency:</strong> Message frequency varies based on property activity and your account configuration. Typical frequency is 1–10 messages per month.</p>
+
+        <p><strong style="color:#c9d1d9">Costs:</strong> Standard message and data rates may apply. The Cromwell Land & Estate LLC does not charge for SMS messages, but your wireless carrier may charge standard messaging fees.</p>
+
+        <p><strong style="color:#c9d1d9">Supported Carriers:</strong> SMS service is supported on all major US wireless carriers including AT&T, T-Mobile, Verizon, US Cellular, Sprint, and others. Carriers are not liable for delayed or undelivered messages.</p>
+
+        <p><strong style="color:#c9d1d9">Privacy:</strong> See our <a href="#privacy-policy">Privacy Policy</a> for details on how we handle your information. Your phone number will not be shared with third parties for marketing purposes.</p>
+    </div>
+
+</div>
+
+<footer>
+    &copy; 2026 The Cromwell Land & Estate LLC. All rights reserved. | Veteran-Owned Business
+    <br><a href="index.html">Home</a> &middot; <a href="#privacy-policy">Privacy Policy</a> &middot; <a href="#terms">Terms & Conditions</a>
+</footer>
+
+<script>
+function handleSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const consent = document.getElementById('consent').checked;
+    if (!consent) { alert('Please check the consent box to continue.'); return; }
+    // In production this would POST to your backend
+    alert('Thank you, ' + name + '! You have been enrolled in SMS notifications at ' + phone + '. You will receive a confirmation text shortly. Reply STOP at any time to unsubscribe.');
+    document.getElementById('sms-form').reset();
+}
+</script>
+
+</body>
+</html>
